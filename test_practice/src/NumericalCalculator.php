@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Sample {
+class NumericalCalculator {
     public function Add($a, $b) {
         return $a + $b;
     }
