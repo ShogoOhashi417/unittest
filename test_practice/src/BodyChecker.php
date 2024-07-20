@@ -5,22 +5,15 @@ namespace App;
 class BodyChecker {
     private readonly Person $person;
 
-    // DI
-    // public function __construct(
-    //     Person $person
-    // ){
-    //     $this->person = $person;
-    // }
+    public function __construct(
+        Person $person
+    ){
+        $this->person = $person;
+    }
 
-    public function getShape($height, $weight) // DIしてない
-    // public function getShape() // DIしてる
+    public function getShape()
     {
-        // DIしてない
-        $person = new Person($height, $weight);
-        $BMI = $person->getBMI();
-
-        // DIしてる
-        // $BMI = $this->person->getBMI();
+        $BMI = $this->person->getBMI();
 
         if ($BMI < 18.5) {
             return '低体重';
