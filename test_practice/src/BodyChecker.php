@@ -7,13 +7,12 @@ class BodyChecker {
 
     public function __construct(
         Person $person
-    ){
+    ) {
         $this->person = $person;
     }
 
     public function getShape()
     {
-        // スタブで設定した値が必ず返ってくる
         $BMI = $this->person->getBMI();
 
         if ($BMI < 18.5) {
