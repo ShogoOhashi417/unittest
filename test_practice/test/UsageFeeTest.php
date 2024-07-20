@@ -28,11 +28,16 @@ class UsageFeeTest extends TestCase {
         $usageFee = new UsageFee();
 
         // ユーザー数の境界値分析テスト
-        $this->assertEquals(5000, $usageFee->getUserNumberFee(4));
-        $this->assertEquals(5000, $usageFee->getUserNumberFee(5));
-        $this->assertEquals(6000, $usageFee->getUserNumberFee(6));
-        $this->assertEquals(49000, $usageFee->getUserNumberFee(49));
-        $this->assertEquals(50000, $usageFee->getUserNumberFee(50));
-        $this->assertEquals(50500, $usageFee->getUserNumberFee(51));
+        $this->assertEquals(0.05, $usageFee->getUserFeeRatio(4, 2023));
+        $this->assertEquals(0.05, $usageFee->getUserFeeRatio(5, 2023));
+        $this->assertEquals(0.06, $usageFee->getUserFeeRatio(6, 2023));
+        $this->assertEquals(0.49, $usageFee->getUserFeeRatio(49, 2023));
+        $this->assertEquals(0.5, $usageFee->getUserFeeRatio(50, 2023));
+        $this->assertEquals(0.505, $usageFee->getUserFeeRatio(51, 2023));
+
+        // 初期費用の境界値分析テスト
+        $this->assertEquals(0.06, $usageFee->getUserFeeRatio(6, 2023));
+        $this->assertEquals(0.02, $usageFee->getUserFeeRatio(6, 2024));
+        $this->assertEquals(0.02, $usageFee->getUserFeeRatio(6, 2025));
     }
 }
