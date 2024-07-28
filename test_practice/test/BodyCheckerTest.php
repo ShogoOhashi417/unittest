@@ -10,6 +10,8 @@ class BodyCheckerTest extends TestCase {
     {
         // 準備
         $personStub = $this->createMock(Person::class);
+
+        // PersonクラスのgetBMIメソッドは必ず20を返す
         $personStub->method('getBMI')->willReturn(20);
 
         // 実行
