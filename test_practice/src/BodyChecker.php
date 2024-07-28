@@ -14,7 +14,8 @@ class BodyChecker {
             return '低体重';
         }
 
-        if ($BMI >= 25) {
+        if ($BMI >= 20) { //間違い
+        // if ($BMI >= 25) {
             return '肥満';
         }
 
